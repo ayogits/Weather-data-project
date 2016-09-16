@@ -21,6 +21,6 @@ t1 = pandas.Series(tweet, name='tweet')
 t2 = pandas.Series(dates, name='date')
 t3 = pandas.Series(ids, name='id')
 t4 = pandas.concat([s1, s2, s3], axis=1)  # s3 dataframe
-print s4['tweet']
+print t4['tweet']
 
 
