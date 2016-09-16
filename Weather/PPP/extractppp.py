@@ -4,9 +4,13 @@ from pandas import DataFrame, Series
 import pyodbc
 import numpy as np
 import plotly.tools as tls
-import plotly.plotly as py
 import cufflinks as cf
 import pandas as pd
+import plotly.plotly as py
+import plotly
+plot_api = 'il8uhkce0f'
+plot_username = 'hemeshpatel91'
+plotly.tools.set_credentials_file(username=plot_username, api_key=plot_api)
 
 cnx = pyodbc.connect('DSN=Kubrick')
 cursor = cnx.cursor()
@@ -32,15 +36,14 @@ df2 = DataFrame(result, columns=['value', 'Pp'])
 df2[['Pp']] = df2[['Pp']].astype(int)
 print df2
 
+
+
 group = DataFrame(df2.groupby('value')['Pp'].mean())
 print group
-
-# Trying to plot the above data
-
 plot = py.iplot([{
     'x': group.index,
     'y':group[col],
     'name': col
-}for col in group.columns], filename='cufflinks/simple-line')
+}for col in group.columns], filename='basic-line')
 
-print plot
+print plot #This saves the graph to my plotly account(hemesh)
