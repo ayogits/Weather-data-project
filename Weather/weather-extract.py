@@ -9,7 +9,7 @@ weather = 'http://datapoint.metoffice.gov.uk/public/data/val/wxfcs/all/json/3316
 page = urllib2.urlopen(weather)
 soup = BeautifulSoup((page), "lxml")
 j_file = json.loads(str(soup.p.string))
-rep_data = str(j_file['SiteRep'])
+rep_data = json.dumps(j_file)
 
 database_name = 'Kubrick'
 your_table = 'weather'
