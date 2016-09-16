@@ -3,6 +3,10 @@ from pandas.io.json import json_normalize
 from pandas import DataFrame, Series
 import pyodbc
 import numpy as np
+import plotly.tools as tls
+import plotly.plotly as py
+import cufflinks as cf
+import pandas as pd
 
 cnx = pyodbc.connect('DSN=Kubrick')
 cursor = cnx.cursor()
@@ -24,18 +28,19 @@ path = data[0]['SiteRep']['DV']['Location']['Period']#  This is the path to the 
 
 result = json_normalize(path, 'Rep', ['value'])
 
-
-#df2 = DataFrame(result, columns=['$', 'Pp', 'value'])
-#print df2
-
-
 df2 = DataFrame(result, columns=['value', 'Pp'])
 df2[['Pp']] = df2[['Pp']].astype(int)
 print df2
-#Trying to change the data type of pp to int
-#df3 = DataFrame(df2['value'], df2['Pp'].astype(int))
-#print df3[['Pp', 'value']]
 
-group = df2.groupby('value')['Pp'].mean()
+group = DataFrame(df2.groupby('value')['Pp'].mean())
 print group
-#Done
+
+# Trying to plot the above data
+
+plot = py.iplot([{
+    'x': group.index,
+    'y':group[col],
+    'name': col
+}for col in group.columns], filename='cufflinks/simple-line')
+
+print plot
