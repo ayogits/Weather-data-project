@@ -16,7 +16,7 @@ print type(tweets[0])# check item in the list
 
 
 client = MongoClient('localhost', 27017)
-db = client['test']
+db = client['test']#make sure we create a new collection
 tweet_table = db['tweet_table']
 print tweet_table# check the table is created
 t = db.tweet_table
