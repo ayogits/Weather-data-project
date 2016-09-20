@@ -3,10 +3,6 @@ import pyodbc
 from pymongo import MongoClient
 
 
-plot_api = 'il8uhkce0f'
-plot_username = 'hemeshpatel91'
-plotly.tools.set_credentials_file(username=plot_username, api_key=plot_api)
-
 cnx = pyodbc.connect('DSN=Kubrick')
 cursor = cnx.cursor()
 
