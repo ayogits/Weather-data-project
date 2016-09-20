@@ -25,4 +25,4 @@ class MyStreamer(TwythonStreamer):
         self.disconnect()
 
 stream = MyStreamer('NBELcJ0hNlJH4FImYclwgEALK', 'ucJsYSCsTlaJodnKgasmOlinYQAch8lgEydqAPMRyiMmRSOaWk', '775364853804466176-i99JIL2wHCwaVNHZPRXd9HjVWRbCokT', 'wWwdvtKS2gWMIv39LDtmkTp0xdOHPCJGeOAaXo4ByEYRv')
-stream.statuses.filter(track='Liverpool sun')
+stream.statuses.filter(track='London sun, London rain, London cloud, London rainy, London sunny, London storm, London lightning, London muggy, London hot, London cold, London thunder')
