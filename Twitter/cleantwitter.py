@@ -12,15 +12,15 @@ rows = cursor.fetchall()
 tweets = []
 for row in rows:
     tweets.append(json.loads(row[1]))
-print tweets
+print type(tweets[0])# check item in the list
 
 
 client = MongoClient('localhost', 27017)
 db = client['test']
 tweet_table = db['tweet_table']
-print tweet_table
+print tweet_table# check the table is created
 t = db.tweet_table
-for i in tweets:
+for i in tweets:#reads through tweets and inserts each one
     t.insert(i)
 
 #tweet=[]
