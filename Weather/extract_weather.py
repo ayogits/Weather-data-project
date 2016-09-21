@@ -1,7 +1,7 @@
 import json
 import urllib2
 from bs4 import BeautifulSoup
-import pyodbc
+from pymongo import MongoClient
 
 api_key = 'f0f01451-af09-4943-a626-0dd57bcf533d'
 
@@ -13,11 +13,10 @@ rep_data = json.dumps(j_file)
 
 
 
-
 client = MongoClient('localhost', 27017)
-db = client['weatherproject1']  # make sure we create a new collection
-wet = db['weather']
-t = db.wet
+db = client['project']  # make sure we create a new collection
+weather = db['weather']
+t = db.weather
 a = rep_data.replace("$", "t")
 b = json.loads(a)
 print b
