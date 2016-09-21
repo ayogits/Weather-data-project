@@ -15,7 +15,7 @@ rep_data = json.dumps(j_file)
 
 
 client = MongoClient('localhost', 27017)
-db = client['weatherproject']  # make sure we create a new collection
+db = client['weatherproject1']  # make sure we create a new collection
 wet = db['weather']
 t = db.wet
 a = rep_data.replace("$", "t")
