@@ -3,6 +3,7 @@ import pyodbc
 from pymongo import MongoClient
 
 
+
 cnx = pyodbc.connect('DSN=Kubrick')
 cursor = cnx.cursor()
 
@@ -17,8 +18,8 @@ for i in row:
     weather_dic.append(line1)
 
 client = MongoClient('localhost', 27017)
-db = client['test']  # make sure we create a new collection
-weather_table = db['weather_table']
+db = client['watherproject']  # make sure we create a new collection
+weather_table = db['weather']
 w = db.weather_table
 
 for x in weather_dic:
