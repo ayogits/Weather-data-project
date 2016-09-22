@@ -23,11 +23,8 @@ for document in cursor:
         info = i['Rep']
         weather_days.append(info)
 first_day = weather_days[0] #We are only interested in the first days of the data.
-<<<<<<< HEAD
 print first_day
 
-=======
->>>>>>> 45737ae4d7e70c1e2a94693d5af3b2207e624584
 for i in first_day:
     weather_w.append(dict(i)['W'])
 weather[extract_date[0]] = weather_w
